@@ -32,7 +32,7 @@ const functionName = (() => {
 
   try {
     await lambda.build();
-    await lambda.create();
+    await lambda.createFunction();
 
   } finally {
     await lambda.deletePackage();
