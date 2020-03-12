@@ -38,7 +38,15 @@ const functionName = (() => {
 
   try {
     await lambda.build();
-    await lambda.createFunction();
+
+    switch (command) {
+      case 'create':
+        await lambda.createFunction();
+        break;
+      case 'update':
+        await lambda.updateFunction();
+        break;
+    }
 
   } finally {
     await lambda.deletePackage();
