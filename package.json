@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/soe-j/lamb/issues"
   },
-  "homepage": "https://github.com/soe-j/lamb#readme"
+  "homepage": "https://github.com/soe-j/lamb#readme",
+  "dependencies": {
+    "aws-sdk": "^2.638.0"
+  }
 }
