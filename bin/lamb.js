@@ -18,7 +18,7 @@ const functionName = (() => {
 (async () => {
   await git.isClean();
 
-  lambda.updateConfig({
+  lambda.modifyConfig({
     FunctionName: functionName,
     Environment: {
       Variables: {
