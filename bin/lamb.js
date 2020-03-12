@@ -13,7 +13,9 @@ console.log('funcFolderPath:', funcFolderPath);
 const env = process.argv[4];
 console.log('environment:', env);
 
-const lambda = new Lambda(funcFolderPath);
+const lambda = new Lambda(funcFolderPath, {
+  region: "ap-northeast-1"
+});
 const git = new Git();
 
 const functionName = (() => {
