@@ -23,7 +23,7 @@ const functionName = (() => {
     FunctionName: functionName,
     Environment: {
       Variables: {
-        NODE_ENV: "env"
+        NODE_ENV: env
       }
     },
     Tags: {
