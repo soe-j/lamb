@@ -18,18 +18,21 @@ const functionName = (() => {
 (async () => {
   await git.isClean();
 
-  await lambda.build();
-  await lambda.create({
-    FunctionName: functionName,
-    Environment: {
-      Variables: {
-        NODE_ENV: env
+  try {
+    await lambda.build();
+    await lambda.create({
+      FunctionName: functionName,
+      Environment: {
+        Variables: {
+          NODE_ENV: env
+        }
+      },
+      Tags: {
+        Commit: await git.revparse('HEAD')
       }
-    },
-    Tags: {
-      Commit: await git.revparse('HEAD')
-    }
-  });
+    });
 
-  await lambda.deletePackage();
+  } finally {
+    await lambda.deletePackage();
+  }
 })();
