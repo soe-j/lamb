@@ -7,7 +7,7 @@ console.log('funcFolderPath:', funcFolderPath);
 const env = process.argv[3];
 console.log('environment:', env);
 
-const lambda = new Lambda(funcFolderPath, env);
+const lambda = new Lambda(funcFolderPath);
 const git = new Git();
 
 const functionName = (() => {
@@ -18,19 +18,21 @@ const functionName = (() => {
 (async () => {
   await git.isClean();
 
+  lambda.updateConfig({
+    FunctionName: functionName,
+    Environment: {
+      Variables: {
+        NODE_ENV: env
+      }
+    },
+    Tags: {
+      Commit: await git.revparse('HEAD')
+    }
+  });
+
   try {
     await lambda.build();
-    await lambda.create({
-      FunctionName: functionName,
-      Environment: {
-        Variables: {
-          NODE_ENV: env
-        }
-      },
-      Tags: {
-        Commit: await git.revparse('HEAD')
-      }
-    });
+    await lambda.create();
 
   } finally {
     await lambda.deletePackage();
