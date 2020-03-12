@@ -1,10 +1,12 @@
 const Lambda = require('../lib/lambda');
 const Git = require('../lib/git');
 
-const funcFolderPath = `${process.cwd()}/${process.argv[2]}`
+const command = process.argv[2];
+
+const funcFolderPath = `${process.cwd()}/${process.argv[3]}`
 console.log('funcFolderPath:', funcFolderPath);
 
-const env = process.argv[3];
+const env = process.argv[4];
 console.log('environment:', env);
 
 const lambda = new Lambda(funcFolderPath);
