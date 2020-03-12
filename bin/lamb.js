@@ -2,6 +2,10 @@ const Lambda = require('../lib/lambda');
 const Git = require('../lib/git');
 
 const command = process.argv[2];
+if (!['create','update'].includes(command)) {
+  throw Error(`unknown command: ${command}`);
+}
+console.log('command:', command);
 
 const funcFolderPath = `${process.cwd()}/${process.argv[3]}`
 console.log('funcFolderPath:', funcFolderPath);
