@@ -1,19 +1,22 @@
 {
-  "name": "lambda",
+  "name": "lamb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "lmd": "bin/lamb.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soe-j/lambda-js.git"
+    "url": "git+https://github.com/soe-j/lamb.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/soe-j/lambda-js/issues"
+    "url": "https://github.com/soe-j/lamb/issues"
   },
-  "homepage": "https://github.com/soe-j/lambda-js#readme"
+  "homepage": "https://github.com/soe-j/lamb#readme"
 }

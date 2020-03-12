@@ -1,1 +1,1 @@
-# lambda-js
+# lamb
