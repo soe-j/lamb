@@ -30,4 +30,6 @@ const functionName = (() => {
       Commit: await git.revparse('HEAD')
     }
   });
+
+  await lambda.deletePackage();
 })();
