@@ -29,6 +29,16 @@ module.exports = {
   },
   EventInvokeConfig: {
     MaximumEventAgeInSeconds: "60",
-    MaximumRetryAttempts: "0",
+    MaximumRetryAttempts: "0"
+  },
+  Custom: {
+    /** overwrite by each environments
+      staging: {
+        FunctionName: "sayHelloWorldStaging"
+      },
+      production: {
+        FunctionName: "sayHelloWorldProduction"
+      }
+    */
   }
-}
+};
