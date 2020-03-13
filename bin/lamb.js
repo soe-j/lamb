@@ -1,8 +1,7 @@
 const Lamb = require('../lib/lamb');
 
 (async () => {
-  const lamb = new Lamb();
-  await lamb.setup({
+  const lamb = new Lamb({
     funcFolderPath: `${process.cwd()}/${process.argv[3]}`,
     env: process.argv[4]
   });
