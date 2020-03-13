@@ -9,4 +9,6 @@ const Lamb = require('../lib/lamb');
 
   const command = process.argv[2];
   await lamb.exec(command);
-})();
+})().catch(e => {
+  console.error(e);
+});
