@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "lmd": "bin/lamb.js"
+    "lamb": "bin/lamb.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
