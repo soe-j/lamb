@@ -21,11 +21,9 @@ module.exports = {
     SubnetIds: [
       "subnet-xxxxxxxxxxxxxxxxx",
       "subnet-yyyyyyyyyyyyyyyyy",
-      "subnet-zzzzzzzzzzzzzzzzz",
+      "subnet-zzzzzzzzzzzzzzzzz"
     ],
-    SecurityGroupIds: [
-      "sg-xxxxxxxxxxxxxxxxx"
-    ]
+    SecurityGroupIds: ["sg-xxxxxxxxxxxxxxxxx"]
   },
   EventInvokeConfig: {
     MaximumEventAgeInSeconds: "60",
