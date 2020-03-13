@@ -1,63 +1,12 @@
-const Lambda = require('../lib/lambda');
-const Git = require('../lib/git');
-
-const command = process.argv[2];
-if (!['init', 'create','update'].includes(command)) {
-  throw Error(`unknown command: ${command}`);
-}
-console.log('command:', command);
-
-const funcFolderPath = `${process.cwd()}/${process.argv[3]}`
-console.log('funcFolderPath:', funcFolderPath);
-
-
-if (command === 'init') {
-  Lambda.init(funcFolderPath);
-  return;
-}
-
-
-const env = process.argv[4];
-console.log('environment:', env);
-
-const lambda = new Lambda(funcFolderPath, {
-  region: "ap-northeast-1"
-});
-const git = new Git();
-
-const functionName = (() => {
-  if (env === 'production') return lambda.config.FunctionName;
-  return `${lambda.config.FunctionName}-${env}`;
-})();
+const Lamb = require('../lib/lamb');
 
 (async () => {
-  await git.isClean();
-
-  lambda.modifyConfig({
-    FunctionName: functionName,
-    Environment: {
-      Variables: {
-        NODE_ENV: env
-      }
-    },
-    Tags: {
-      Commit: await git.revparse('HEAD')
-    }
+  const lamb = new Lamb();
+  await lamb.setup({
+    funcFolderPath: `${process.cwd()}/${process.argv[3]}`,
+    env: process.argv[4]
   });
 
-  try {
-    await lambda.build();
-
-    switch (command) {
-      case 'create':
-        await lambda.createFunction();
-        break;
-      case 'update':
-        await lambda.updateFunction();
-        break;
-    }
-
-  } finally {
-    await lambda.deletePackage();
-  }
+  const command = process.argv[2];
+  await lamb.exec(command);
 })();
