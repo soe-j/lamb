@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const Lamb = require('../lib/lamb');
 
 (async () => {
