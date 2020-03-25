@@ -6,17 +6,14 @@ module.exports = {
   MemorySize: "128",
   Timeout: "5",
   Runtime: "nodejs12.x",
-  /** overwrite by lamb
-
-    Environment: {
-      Variables: {
-        NODE_ENV: "staging"
-      }
-    },
-    Tags: {
-      Commit: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    },
-  */
+  Environment: {
+    Variables: {
+      // NODE_ENV: "staging" /* auto assign by lamb */
+    }
+  },
+  Tags: {
+    // Commit: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" /* auto assign by lamb */
+  },
   VpcConfig: {
     SubnetIds: [
       "subnet-xxxxxxxxxxxxxxxxx",
