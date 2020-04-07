@@ -12,4 +12,5 @@ const Lamb = require('../lib/lamb');
   await lamb.exec(command);
 })().catch(e => {
   console.error(e);
+  process.exit(1);
 });
