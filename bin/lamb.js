@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-const Lamb = require('../lib/lamb');
+const Lamb = require('../index');
 
 (async () => {
   const lamb = new Lamb({

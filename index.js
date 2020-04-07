@@ -1,5 +1,5 @@
-const Lambda = require('./lambda');
-const Git = require('./git');
+const Lambda = require('./lib/lambda');
+const Git = require('./lib/git');
 
 
 class lamb {
