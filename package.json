@@ -21,6 +21,6 @@
   "homepage": "https://github.com/soe-j/lamb#readme",
   "dependencies": {
     "aws-sdk": "^2.654.0",
-    "simple-git": "^1.132.0"
+    "simple-git": "^3.3.0"
   }
 }
